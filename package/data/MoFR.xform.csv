@@ -1,0 +1,6 @@
+"network.var.name";"network.unit";"network.long.description";"cf.var.name";"cf.unit";"cf.cell.method"
+"1";"precipitation";"mm";"depth of water-equivalent rain";"lwe_thickness_of_precipitation_amount";"mm";"time: sum"
+"2";"temperature";"celsius";"";"air_temperature";"celsius";"time: point"
+"3";"relative_humidity";"%";"";"relative_humidity";"%";""
+"4";"wind_speed";"m s-1";"";"wind_speed";"m s-1";""
+"5";"wind_direction";"degree";"";"wind_from_direction";"degree";""

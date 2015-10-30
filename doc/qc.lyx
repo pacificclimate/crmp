@@ -1,0 +1,428 @@
+#LyX 1.6.4 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+QA/QC1 Procedures
+\end_layout
+
+\begin_layout Author
+James Hiebert
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename qc_flowchart.pdf
+	width 100text%
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flowchart"
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Flowchart showing the main steps of the QA/QC1 process
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Data Normalization
+\end_layout
+
+\begin_layout Subsection*
+Standardize variable names
+\end_layout
+
+\begin_layout Standard
+This step just ensures that variables representing the same quantity which
+ come from different sources are named the same.
+ This could be easily implemented in a simple lookup table.
+\end_layout
+
+\begin_layout Subsection*
+Standardize units
+\end_layout
+
+\begin_layout Standard
+Depending on whether incoming data is properly attributed, this step will
+ likely require a first look at the data and then the development of a number
+ of conversion formulae.
+ Most units are standard, however, so it will just be a matter of identifying
+ them and making the proper attribution.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\scriptsize\ttfamily}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+var.def.ncdf("MIN.TEMP","degreesCelcius",list(stn,t),missval,longname="Minimum
+ temperature"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("MAX.TEMP","degreesCelcius",list(stn,t),missval,longname="Maximum
+ temperature"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("PRES.TEMP","degreesCelcius",list(stn,t),missval,longname="Present
+ temperature?"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("HRLY.PRCP","mm/hr?",list(stn,t),missval,longname="Hourly precipitatio
+n"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("NEW.PRCP","mm?",list(stn,t),missval,longname="New precipitation"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("GAUGE.TOTAL","mm?",list(stn,t),missval,longname="Gauge total?"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("HRLY.SNOW","?",list(stn,t),missval,longname="Hourly snowfall?"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("NEW.SNOW","?",list(stn,t),missval,longname="New snowfall?"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("OBS.TYPE","'RAW'or'ST'",list(stn,t),missval,longname="Observation
+ type"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("DEW.POINT","degreesCelcius?",list(stn,t),missval,longname="Dewpoint")
+,
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("SNOW.PACK","mm?",list(stn,t),missval,longname="Total snow pack"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("PRECIP.DET.RATIO","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("WND.SPD.1","m/s?",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("MAX.GUST.1","m/s?",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("WND.DIR.1","degrees",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("STD.DEV.1","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("WND.SPD.2","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("MAX.GUST.2","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("WND.DIR.2","degrees",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("STD.DEV.2","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("ATM.PRESS","",list(stn,t),missval,longname="Atmospheric pressure"),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("BATT.VOLT.1","volts",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("BATT.VOLT.2","volts",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("BATT.VOLT.3","volts",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("BATT.VOLT.4","volts",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("HRLY.SOLAR","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("MAX.HRLY.SOLAR","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("DAILY.TOTAL.SOLAR","",list(stn,t),missval,longname=""),
+\end_layout
+
+\begin_layout Plain Layout
+
+var.def.ncdf("RH","percent",list(stn,t),missval,longname="Relative humidity")
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Code listing showing the definition of the NetCDF variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Outlier Detection
+\end_layout
+
+\begin_layout Subsection*
+Statistical outlier detection
+\end_layout
+
+\begin_layout Standard
+This could include a variety of techniques which would need to be evaluated.
+ No plans yet.
+\end_layout
+
+\begin_layout Subsection*
+Expert system outlier detection
+\end_layout
+
+\begin_layout Standard
+The expert system outlier detection includes heuristic rules based on knowledge
+ of valid ranges for variables and known relationships between variables.
+ This module will contain static thresholds for variables as well as a number
+ of other rules.
+ Examples include eliminating values where:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T_{min}>T_{max}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+There exists a large diurnal temperature range (
+\begin_inset Formula $T_{max}-T_{min}>60$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Subsection*
+Manual outlier detection
+\end_layout
+
+\begin_layout Standard
+This step could include a small applet with interactive plots where the
+ user can manually intervene and remove points which appear clearly to be
+ outliers.
+\end_layout
+
+\begin_layout Section*
+Output
+\end_layout
+
+\begin_layout Subsection*
+Plot data
+\end_layout
+
+\begin_layout Standard
+Plots should be generated for each timeseries of the before and after data
+ to ensure that there is some accountability and traceability in the automatic
+ data filtering routines.
+ An exmample of such plot is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:before_after"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/data2/projects/data_cleanup/SNOWPILLOW_PCIC_V2/new_data/3A24P_validation_MIN_TEMP.pdf
+	width 100text%
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:before_after"
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Example of a potential timeseries plot showing the data (in this case 
+\begin_inset Formula $T_{min}$
+\end_inset
+
+ before and after a procedural filtering routine.
+ Plots such as this one could be generated for each variable at east station
+ to serve as a traceable record for validating the validation process.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+NetCDF File
+\end_layout
+
+\begin_layout Standard
+NetCDF is an ideal data storage and transfer format for multidimensional
+ climate data.
+ Metadata accompanies the data in order to properly describe the variables,
+ the units, etc.
+ I/O support for the format is present in nearly every programming language.
+\end_layout
+
+\end_body
+\end_document

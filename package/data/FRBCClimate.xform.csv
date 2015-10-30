@@ -1,0 +1,3 @@
+"network.var.name";"network.unit";"network.long.description";"cf.var.name";"cf.unit";"cf.cell.method"
+"1";"TEMP_MEAN";"celsius";"Present temperature";"air_temperature";"celsius";"time: mean"
+"2";"PRECIP_TOTAL";"mm";"Hourly precipitation";"lwe_thickness_of_precipitation_amount";"mm";"time: sum"

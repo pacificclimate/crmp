@@ -1,0 +1,9 @@
+cf.standard.name,min.valid,max.valid,cf.units,persist
+air_pressure,600,1040,millibar,5
+air_temperature,-45,45,celsius,5
+lwe_thickness_of_precipitation_amount,0,300,mm,24
+wind_from_direction,0,360,"km h-1",24
+wind_speed,0,140,"km h-1",24
+dew_point_temperature,-45,45,celsius,12
+relative_humidity,0,105,%,20
+wind_speed_of_gust,0,200,"km h-1",24

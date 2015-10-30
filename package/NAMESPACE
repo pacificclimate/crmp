@@ -1,0 +1,34 @@
+import(ncdf4)
+import(methods)
+import(multicore)
+import(MASS)
+import(RUnit)
+import(seas)
+
+exportClasses(crmp, flag, dataInsert)
+S3method(plot, crmp)
+#S3method(boxplot, crmp)
+S3method(hist, crmp)
+S3method(summary, crmp)
+S3method(order, crmp)
+S3method(is.na, crmp)
+S3method(`[`, crmp)
+
+S3method(str, flag)
+
+exportMethods(`[`, coerce)
+
+export('[.crmp', '[.crmp.by.time', '[.crmp.by.name')
+export('crmp.to.ncdf', 'crmp.infill', 'tzero.plot.crmp', 'which.is.tmax', 'which.is.tmin', 'which.is.tmean', 'which.is.precip',
+       'normal.code.crmp', 'crmp.get.start.date', 'crmp.get.end.date', 'crmp.get.observation.frequency',
+       'freq.from.clusters', 'crmp.fraction.of.data.present', 'crmp.longest.data.gap', 'crmp.get.vars',
+       'crmp.has.temp.and.precip', 'crmp.has.temp', 'crmp.fit.normal', 'crmp.fit.gamma', 'import.crmp', 'export')
+export('boxplot.crmp')
+export('read.sql.crmp', 'read.sql.crmp.names', 'search.sql.crmp')
+exportPattern('ks\\.test\\..*')
+export('is.significant')
+exportPattern('^qc\\..*')
+
+# I'd actually rather not export these, but they're necessary for running the test suite
+export('convert.to.cf.1.4.names', 'month.meets.3.5.rule', 'int.to.boolean.bitvector', 'map.names', 'maximal.3.5.rule', 'more.than.three.in.a.row.missing',
+       'get.variable.defs', 'boolean.bitvector.to.int', 'slots', 'slots<-', 'remove.nondefined.vars')

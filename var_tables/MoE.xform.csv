@@ -1,0 +1,7 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+TEMP_MEAN,celsius,"Present temperature",air_temperature,celsius,"time: mean"
+PRECIP_TOTAL,mm,"Hourly precipitation",lwe_thickness_of_precipitation_amount,mm,"time: sum"
+HUMIDITY,%,"Relative humidity",relative_humidity,%,"time: point"
+BAR_PRESS_HOUR,millibar,"Atmospheric pressure",air_pressure,millibar,"time: point"
+WDIR_UVEC,degree,,wind_from_direction,degree,"time: point"
+WSPD_SCLR,,,wind_speed,"m s-1","time: point"

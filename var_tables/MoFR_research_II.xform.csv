@@ -1,0 +1,12 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+Tm,celsius,,air_temperature,celsius,"time: mean"
+Tx,celsius,,air_temperature,celsius,"time: maximum"
+Tn,celsius,,air_temperature,celsius,"time: minimum"
+Precip,mm,,lwe_thickness_of_precipitation_amount,mm,"time: sum"
+RHm,%,,relative_humidity,%,"time: mean"
+RHx,%,,relative_humidity,%,"time: maximum"
+RHn,%,,relative_humidity,%,"time: minimum"
+Wind_m,m s-1,,wind_speed,m s-1,"time: mean"
+Wind_x,m s-1,,wind_speed,m s-1,"time: maximum"
+Wind_n,m s-1,,wind_speed,m s-1,"time: minimum"
+Wdir_m,degree,wind_from_direction,degree,"time: mean"

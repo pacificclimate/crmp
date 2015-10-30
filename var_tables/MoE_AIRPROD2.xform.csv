@@ -1,0 +1,10 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+MINTMP,celsius,,air_temperature,celsius,time: minimum
+MAXTMP,celsius,,air_temperature,celsius,time: maximum
+PPT,mm,,lwe_thickness_of_precipitation_amount,mm,time: sum
+HUM1,%,,relative_humidity,%,time: point
+HUM2,%,,relative_humidity,%,time: point
+HUM3,%,,relative_humidity,%,time: point
+HUM4,%,,relative_humidity,%,time: point
+HUM1300,%,,relative_humidity,%,time: point
+SHOURS,hours,,duration_of_sunshine,s,time: sum

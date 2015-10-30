@@ -1,0 +1,7 @@
+"network.var.name";"network.unit";"network.long.description";"cf.var.name";"cf.unit";"cf.cell.method"
+"1";"TEMP_MEAN";"celsius";"Present temperature";"air_temperature";"celsius";"time: mean"
+"2";"PRECIP_TOTAL";"mm";"Hourly precipitation";"lwe_thickness_of_precipitation_amount";"mm";"time: sum"
+"3";"HUMIDITY";"%";"Relative humidity";"relative_humidity";"%";"time: point"
+"4";"BAR_PRESS_HOUR";"millibar";"Atmospheric pressure";"air_pressure";"millibar";"time: point"
+"5";"WDIR_UVEC";"degree";"";"wind_from_direction";"degree";"time: point"
+"6";"WSPD_SCLR";"";"";"wind_speed";"m s-1";"time: point"

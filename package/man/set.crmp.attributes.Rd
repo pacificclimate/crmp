@@ -1,0 +1,47 @@
+\name{set.crmp.attributes}
+\alias{set.crmp.attributes}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{set.crmp.attributes}
+\description{
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+}
+\usage{
+set.crmp.attributes(crmp, var.defs, network)
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{crmp}{
+%%     ~~Describe \code{crmp} here~~
+}
+  \item{var.defs}{
+%%     ~~Describe \code{var.defs} here~~
+}
+  \item{network}{
+%%     ~~Describe \code{network} here~~
+}
+}
+\details{
+%%  ~~ If necessary, more details than the description above ~~
+}
+\value{
+%%  ~Describe the value returned
+%%  If it is a LIST, use
+%%  \item{comp1 }{Description of 'comp1'}
+%%  \item{comp2 }{Description of 'comp2'}
+%% ...
+}
+\references{
+%% ~put references to the literature/web site here ~
+}
+\author{
+%%  ~~who you are~~
+}
+\note{
+%%  ~~further notes~~
+}
+
+%% ~Make other sections like Warning with \section{Warning }{....} ~
+
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+}

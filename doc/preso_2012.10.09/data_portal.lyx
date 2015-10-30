@@ -1,0 +1,440 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage{beamerthemesplit}
+\usepackage{graphicx}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+PCIC Data Portal
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+PCIC Web Services
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Computational Support Group
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+CS Group
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Pacific Climate Impacts Consortium
+\begin_inset Newline newline
+\end_inset
+
+University of Victoria
+\begin_inset Newline newline
+\end_inset
+
+Victoria, BC
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+PCIC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+October 9, 2012
+\end_layout
+
+\begin_layout TitleGraphic
+\begin_inset Graphics
+	filename ../pcic_header3.png
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../uvic.jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Goals
+\end_layout
+
+\begin_layout Itemize
+Give people data
+\end_layout
+
+\begin_layout NoteItem
+Our primary goal for this project is to give people data.
+ Hey, that seems pretty simple! How hard can it be? Just copy some data
+ to a hard drive, ship it off to them.
+ Done! Well, we've been doing that for a few years now and while it does
+ get the job done, it has a few unfortunate sides to it.
+ It's not fast; it can sometimes take a few weeks of coordination to get
+ data to users.
+ It takes staff time to work with users on determining and meeting their
+ needs and it also doesn't give users any idea of what to expect before
+ they get the data.
+\end_layout
+
+\begin_layout NoteItem
+We have received data requests that read like the grocery list you wrote
+ when fasting for several days.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+I'll take 200 years of CGCM3, GFDL, CCSM and HADCM please.
+ Send me A1B B1 A2, of every variable available.
+\begin_inset Quotes erd
+\end_inset
+
+ And when we do take the approach of just sending the users data, and letting
+ them work out what they need, the friendly and seemingly innocuous gesture
+ can result in a lot of questions that amount to supporting the data product.
+\end_layout
+
+\begin_layout BeginFrame
+Sub-goals
+\end_layout
+
+\begin_layout Itemize
+Save time/$$ on data management
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+less time re-formatting data == more time analyzing data (the fun stuff)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Decrease (eliminate) time spent on data requests
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Data pull vs.
+ push
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Increase interactivity
+\end_layout
+
+\begin_layout Itemize
+Don't box yourself in; poor choices is data format
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+increase the effort spent on re-formatting
+\end_layout
+
+\begin_layout Itemize
+limits analytic ability
+\end_layout
+
+\begin_layout Itemize
+limits complexity of questions that can be asked about data
+\end_layout
+
+\end_deeper
+\begin_layout NoteItem
+So with that experience in mind, we have a number of underlying subgoals.
+ Primarily, we want to give people data.
+ But we also want to do it in such a way that reduces the amount of time
+ spent on data requests.
+ We want for it to save our time on general data management and storage.
+ And we want to do it such a way that increases data interactivity and broadens,
+ rather than limits, the scope of what we can do with the data.
+\end_layout
+
+\begin_layout BeginFrame
+Layer Approach
+\end_layout
+
+\begin_layout Subtitle
+Standardized protocols and interfaces
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename layer_diagram.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+To meet all of these goals with limited resources, we have done a couple
+ of things.
+ One was to subdivide the problem into smaller manageable tasks.
+\end_layout
+
+\begin_layout NoteItem
+But the thing to see here is that we have a layer of abstraction between
+ the native storage of the data (on the bottome) and the applications that
+ are using the data (on the top).
+ Components at each layer communicate with the layers above or below them
+ using standardized protocols and interfaces.
+ This stacked approach allows us to decouple the details of the data from
+ the climate information which it represents.
+ And it also allows us to spend our limited development time writing application
+ logic rather than wasting our time reformatting data or maintaining some
+ data format that no one else uses.
+\end_layout
+
+\begin_layout BeginFrame
+Features
+\end_layout
+
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Included
+ (v1.4)
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Multiple basemaps (in BC Albers projection)
+\end_layout
+
+\begin_layout Itemize
+Feature selection info
+\end_layout
+
+\begin_layout Itemize
+Filter by attributes of interest and polygons
+\end_layout
+
+\begin_layout Itemize
+Downloading station information (many formats)
+\end_layout
+
+\begin_layout Itemize
+Multi-station data request aggregation
+\end_layout
+
+\begin_layout Itemize
+OpenID authentication
+\end_layout
+
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Pending
+ (v1.6?)
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hydrologic data map selection and download
+\end_layout
+
+\end_deeper
+\begin_layout NoteItem
+This is comparison of the major features that we have been able to release
+ in the point releases up to version 1.4.
+ We have developed a custom map application which allows users to interact
+ with all of the meteorologic stations in the PCDS.
+ We have provided a variety of filters and feature selection tools, and
+ have provided the ability to download packages of station data in a handful
+ of formats that are generated on the fly.
+\end_layout
+
+\begin_layout NoteItem
+In addition to all of the work that we've done on the PCDS data portal,
+ we have started our fist foray into serving up raster data.
+ And that is what will be the hydrologic data selection map and it's still
+ under development, but we made some very good progress on it over the summer.
+ So I'll go though and show a demo of each of these data selector maps.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset CommandInset href
+LatexCommand href
+name "PCDS Data Selector Map"
+target "http://tools.pacificclimate.org/data_portal/pcds_map/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset CommandInset href
+LatexCommand href
+name "Hydrologic Data Selector Map"
+target "http://windy.pcic.uvic.ca/james_crmp/data_portal/hydro_map/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+Under development
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,13 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+VCAR,m,"Characteristic significant wave height",sea_surface_wave_significant_height,m,"time: point"
+VTPK,s,"Wave spectrum peak period",sea_surface_wave_period_at_variance_spectral_density_maximum,s,"time: average"
+WDIR1,degrees,"Direction from which the wind is blowing",wind_from_direction,degrees,"time: average"
+WSPD1,m s-1,"Horizontal wind speed",wind_speed, m s-1,"time: average"
+GSPD1,m s-1,"Gust wind speed",wind_speed_of_gust,m s-1,"time: point"
+WDIR2,degrees,"Direction from which the wind is blowing",wind_from_direction,degrees,"time: average"
+WSPD2,m s-1,"Horizontal wind speed",wind_speed, m s-1,"time: average"
+GSPD2,m s-1,"Gust wind speed",wind_speed_of_gust,m s-1,"time: point"
+ATMS1,millibar,"Sea level atmospheric pressure",air_pressure,millibar,"time: point"
+ATMS2,millibar,"Sea level atmospheric pressure",air_pressure,millibar,"time: point"
+DRYT,celsius,"Dry bulb air temperature",air_temperature,celsius,"time: average"
+SSTP,celsius,"Sea surface temperature",sea_surface_temperature,celsius,"time: point"

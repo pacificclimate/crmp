@@ -1,0 +1,7 @@
+"network.var.name";"network.unit";"network.long.description";"cf.var.name";"cf.unit";"cf.cell.method"
+"1";"MIN_TEMP";"celsius";"Minimum daily temperature";"air_temperature";"celsius";"time: minimum"
+"2";"MAX_TEMP";"celsius";"Maximum daily temperature";"air_temperature";"celsius";"time: maximum"
+"3";"ONE_DAY_PRECIPITATION";"mm";"Daily precipitation";"lwe_thickness_of_precipitation_amount";"mm";"time: sum"
+"4";"ONE_DAY_RAIN";"mm";"Daily rainfall";"thickness_of_rainfall_amount";"mm";"time: sum"
+"5";"ONE_DAY_SNOW";"cm";"Daily snow accumulation";"thickness_of_snowfall_amount";"cm";"time: sum"
+"6";"SNOW_ON_THE_GROUND";"cm";"Amount of snow on the ground";"surface_snow_thickness";"cm";"time: point"

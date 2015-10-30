@@ -1,0 +1,16 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+MIN.TEMP,celsius,"Minimum temperature",air_temperature,celsius,"time: maximum"
+MAX.TEMP,celsius,"Maximum temperature",air_temperature,celsius,"time: minimum"
+PRES.TEMP,celsius,"Present temperature ?",air_temperature,celsius,"time: point"
+HRLY.PRCP,mm,"Hourly precipitation",lwe_thickness_of_precipitation_amount,mm,"time: sum"
+OBS.TYPE,"RAW' or 'ST'","Observation type",,,
+DEW.POINT,celsius,"Dew point",dew_point_temperature,celsius,
+SNOW.PACK,cm,"Total snow pack",,cm,"time: point"
+WND.SPD.1,"km h-1",,wind_speed,"m s-1",
+MAX.GUST.1,"km h-1",,wind_speed_of_gust,"m s-1","time: Maximum"
+WND.DIR.1,degree,,wind_from_direction,degree,
+WND.SPD.2,"km h-1",,,"m s-1",
+MAX.GUST.2,"km h-1",,,"m s-1","time: Maximum"
+WND.DIR.2,degree,,,degree,
+ATM.PRESS,millibar,"Atmospheric pressure",air_pressure,Pa,"time: point"
+RH,%,"Relative humidity",relative_humidity,%,

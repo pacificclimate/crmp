@@ -1,0 +1,1569 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage{beamerthemesplit}
+\usepackage{graphicx}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Automating Quality Control Procedures for Climatological Observations
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+Automating QC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+James Hiebert and Andres Soux
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+Hiebert and Soux
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Pacific Climate Impacts Consortium
+\begin_inset Newline newline
+\end_inset
+
+University of Victoria
+\begin_inset Newline newline
+\end_inset
+
+Victoria, BC
+\begin_inset OptArg
+status open
+
+\begin_layout Plain Layout
+PCIC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+April 20, 2010
+\end_layout
+
+\begin_layout TitleGraphic
+\begin_inset Graphics
+	filename pcic_header3.png
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename uvic.jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Outline
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Intelligent Data QC
+\end_layout
+
+\begin_layout BeginFrame
+Automated Data QC is AI
+\end_layout
+
+\begin_layout Itemize
+Controlling quality on meteorological observations is an intelligent process
+\end_layout
+
+\begin_layout Itemize
+Requires knowledge about
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+behaviour of measured quantities
+\end_layout
+
+\begin_layout Itemize
+behaviour of data sensors
+\end_layout
+
+\begin_layout Itemize
+the ability to classify data
+\end_layout
+
+\end_deeper
+\begin_layout NoteItem
+The process of controlling quality on meteorological observations is an
+ intelligent process.
+ There is required domain knowledge about the behaviour of the measured
+ quantities, the behaviour of the data sensors, and essentially what differentia
+tes 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ data from 
+\begin_inset Quotes eld
+\end_inset
+
+incorrect
+\begin_inset Quotes erd
+\end_inset
+
+ data.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Automated Data QC is AI
+\end_layout
+
+\begin_layout Itemize
+Government agencies can handle the data through a large workforce
+\end_layout
+
+\begin_layout Itemize
+We, however, will have to automate the classification process
+\end_layout
+
+\begin_layout Itemize
+This is a form of 
+\series bold
+Artificial Intelligence
+\end_layout
+
+\begin_layout NoteItem
+Government agencies with a large infrastructure and workforce have the luxury
+ of employing people full time to QC data before it's release.
+ In this project we have no such luxury (plus, I am a computer scientist
+ and am pre-disposed against performing mundane tasks).
+ Therefore, we must automate the QC process, thereby essentially creating
+ a form of artificial intelligence.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Applicable Types of AI
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Expert system
+\end_layout
+
+\begin_layout Itemize
+Bayesian classification
+\end_layout
+
+\begin_layout Itemize
+Connectionist/neural architecture
+\end_layout
+
+\begin_layout NoteItem
+We chose to design our system as an expert system, so I'll describe that
+ in the next couple of slide, but here's a brief description of some other
+ options that could potentially be explored.
+ Bayesian classification is a type of AI which uses statistics and logical
+ rules attempt to classify data into different states.
+ A good example of this is classification of spam e-mail.
+ It actually a method that works very well, however it requires thousands
+ of known data points from which to train itself on the probabilities.
+ Connectionis architectures or neural networks can be a good choice, because
+ they're better with handling noisy data.
+ However, they also require training to be effect, are very sensitive to
+ network topology and provide essentially zero traceability for how a decision
+ was made.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Expert Systems
+\end_layout
+
+\begin_layout BeginFrame
+Properties of an Expert System
+\end_layout
+
+\begin_layout Itemize
+Encapsulates the knowledge of a domain expert
+\end_layout
+
+\begin_layout Itemize
+Uses a set of 
+\series bold
+rules 
+\series default
+to make infer conclusions about the data set
+\end_layout
+
+\begin_layout Itemize
+Provides clear traceability as to the system's reasoning
+\end_layout
+
+\begin_layout NoteItem
+An expert system is essentially a system that is constructed by the help
+ of consultation with domain experts.
+ These experts can provide specifics regarding the reasoning that they use
+ when they are making a decisions, classifying data, or whatever the experts
+ do.
+ Their reasoning is then codified into a set of rules which can be applied
+ to a data set.
+ Because of it's simple design, the system has the ability to report on
+ precisely why it made the decision that it did.
+ However, this simplicity is also limiting, in that it can only make decisions
+ based logic which can be articulated by experts and programmed by the computer
+ scientists.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Advantages vs.
+ Disadvantages
+\end_layout
+
+\begin_layout FrameSubtitle
+of an Expert System
+\end_layout
+
+\begin_layout ColumnsTopAligned
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+Advantages
+\end_layout
+
+\begin_layout Itemize
+This group has expertise in climate and meteorology
+\end_layout
+
+\begin_layout Itemize
+Support inspection of reasoning
+\end_layout
+
+\begin_layout Itemize
+Easy to understand
+\end_layout
+
+\begin_layout Itemize
+Easy to modify
+\end_layout
+
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+Disadvantages
+\end_layout
+
+\begin_layout Itemize
+All domain knowledge must be spelled out explicitly
+\end_layout
+
+\begin_layout Itemize
+Reasoning is therefore limited
+\end_layout
+
+\end_deeper
+\begin_layout NoteItem
+To reiterate: we chose to design this as an expert system since this group
+ has plenty of expertise in climate science and in reading meterological
+ observations.
+ This expertise, we felt, would be sufficiently accessible to design the
+ expert system.
+ Additionally, with using a rule-based approach and a modular design it
+ is easy to allow the system to evolve as necessary as this project develops.
+\end_layout
+
+\begin_layout NoteItem
+We also considered the applications which the products derived from this
+ data will be supporting.
+ These products will generally climate products, so it will not be necessary
+ to eliminate every single incorrect record from the data set.
+ As long as the dataset has some statistical integrity, it will be sufficient
+ for use in producing climatological products.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Multi-dataset QC Design
+\end_layout
+
+\begin_layout Subsection
+System Overview
+\end_layout
+
+\begin_layout BeginFrame
+QC Design
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename data_import_and_qc_landscape.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Shown is a diagram of the system as it is designed and implemented.
+ The primary components of importance are the import modules for each dataset
+ shown at the top and the main quality control loop, shown in the middle.
+ The import modules convert each blob of data into a set of per-station
+ data frame with standardized variable names, attributes, etc.
+ In the QC loop the user can apply various QC rules to the data frames and
+ then examine the results.
+ Or the user can write a simple script to mass-apply all of the data routines
+ to all of the data sets.
+ We have added a number of accessory plotting routines and statistical summary
+ functions that can be applied to the standard data frames.
+ On the right of the diagram it is shown that following satisfactory QC,
+ the data can be archived and queried over the Internet by whomever the
+ users of the data may be.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Computational Vitals
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Graphics
+	filename debian.png
+	height 16pt
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+Linux
+\end_layout
+
+\begin_layout Itemize
+16 Processors @ 2.27 GHz, ≈ 24 GB RAM
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Graphics
+	filename Rlogo.jpg
+
+\end_inset
+
+ statistical programming language
+\end_layout
+
+\begin_layout NoteItem
+All of the raw data which we have received is stored on one of our PCIC
+ development servers.
+ It's a multi-user, multi-processor Linux system with enough RAM to handle
+ the large amounts of data.
+ Most of the time spent processing is data I/O.
+ After data is loaded, it's fairly trivial, computationally, to pump it
+ through a set of QC routines.
+\end_layout
+
+\begin_layout NoteItem
+FIXME: What else is noteworthy?
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Import Modules
+\end_layout
+
+\begin_layout BeginFrame
+Import Modules
+\end_layout
+
+\begin_layout Itemize
+We have seen several datasets so far:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ministry of Transportation
+\end_layout
+
+\begin_layout Itemize
+Ministry of the Environment
+\end_layout
+
+\begin_layout Itemize
+Ministry of Forests and Range
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Formats vary
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Access database
+\end_layout
+
+\begin_layout Itemize
+Excel spreadsheets
+\end_layout
+
+\begin_layout Itemize
+One file per station vs.
+ one file per region (with all stations)
+\end_layout
+
+\end_deeper
+\begin_layout NoteItem
+Explain the various types of data blobs that we have received.
+ Note that we had to write the import modules for each of these different
+ data sets, however once an exchange format is agreed upon by all parties,
+ this will hopefully not have be to done in the future.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Import Modules
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename data_import_only.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A separate import module is written for each of the dataset
+\end_layout
+
+\begin_layout Itemize
+Brings them into a common format (a multi-variate timeseries for each station)
+\end_layout
+
+\begin_layout Subsection
+Expert rules
+\end_layout
+
+\begin_layout BeginFrame
+Expert Rules
+\end_layout
+
+\begin_layout FrameSubtitle
+Overview
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename expert_rules_only.pdf
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+So once the import modules bring all of the data into a common format, it
+ becomes easy to write generalized expert rules and apply them to each of
+ the data frames.
+ Generally we plot the results and you'll see some of those plots later
+ in the slides.
+ Now I'll go through the set of expert rules which we have implemented thus
+ far.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Replace NA Values
+\end_layout
+
+\begin_layout Itemize
+Some datasets use a grossly out-of-range value to represent unavailable
+ data
+\end_layout
+
+\begin_layout Itemize
+Not Available (NA)
+\end_layout
+
+\begin_layout Itemize
+Examples: -99, -6999, -9999, 6999, etc.
+\end_layout
+
+\begin_layout Itemize
+Rule: 
+\begin_inset Formula $\forall x:x\in NA$
+\end_inset
+
+, remove 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+This is one of the most simple rules.
+ A few of the older dataset use grossly out-of-range values to represent
+ the absence of data.
+ We have a run that just takes a list of representative NA values as a parameter
+ and does a mass find and replace.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Filter by Threshold
+\end_layout
+
+\begin_layout Itemize
+Rule: 
+\begin_inset Formula $\forall x:x<Thresh_{min}\wedge x<Thresh_{max}$
+\end_inset
+
+, remove 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Very imperfect, but it is a reasonable start
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="6">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Variable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Temp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precip
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wind Speed
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wind Dir
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rel.
+ Humid.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Thresh_{max}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Thresh_{min}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+360
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+105
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Threshold filtering is the next easy way to get rid of a variety of fliers
+ and false outliers.
+ It's fairly simple for bounded variables such as wind direction and other
+ variables which may not be negative.
+ Threshold filtering on temperature is a bit more risky, but setting a generous
+ threshold will at least get rid of some of the more egregious errors.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Diurnal Temperature Range
+\end_layout
+
+\begin_layout Itemize
+A large value of 
+\begin_inset Formula $T_{max}-T_{min}$
+\end_inset
+
+ may indicate a problem
+\end_layout
+
+\begin_layout Itemize
+Rule: 
+\begin_inset Formula $\forall t:Tmax_{t}-Tmin_{t}>Thresh_{Trange}$
+\end_inset
+
+, remove 
+\begin_inset Formula $T*_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Currently implementation only checks variables which are daily minima/maxima
+\end_layout
+
+\begin_layout Itemize
+Not actually observed in any of the data sets
+\end_layout
+
+\begin_layout Itemize
+Probably should implement this as a moving window across the hourly observations
+\end_layout
+
+\begin_layout NoteItem
+I inherited this rule from one of our programmers who did a lot of QC on
+ (I think) some BC Hydro stations data and some snow-pillow data which were
+ all daily observations.
+ So currently the rule only checks t max - t min, and I haven't received
+ any hits on it whatsoever.
+ I think on my TODO list is to implement it as a moving window with a window
+ width of 24 hours.
+ That way it will probably actually be a useful rule.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset Formula $T_{min}>T_{max}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+This is--by the definition of min and max--impossible.
+\end_layout
+
+\begin_layout Itemize
+Being true indicates a problem
+\end_layout
+
+\begin_layout Itemize
+While this has been observed in some WX datasets obtained by PCIC, this
+ was not observed in any of the CRMP data
+\end_layout
+
+\begin_layout NoteItem
+This is another legacy rule from some stations data that we've brought into
+ PCIC for other purposes.
+ I haven't seen it in any of the CRMP data to date.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Filter Persistent Values
+\end_layout
+
+\begin_layout Itemize
+Rule: 
+\begin_inset Formula $\forall t\in t_{n}\to t_{n+k}:t_{i}=t_{i-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+I.e.
+ for some k value (number of observations) all variable observations are
+ the same
+\end_layout
+
+\begin_layout Itemize
+This is harder than it sounds
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+There are lots of precip = 0 observations
+\end_layout
+
+\begin_layout Itemize
+There are lots of observations where humidity is saturated at 100%
+\end_layout
+
+\begin_layout Itemize
+etc.
+ Lots of exceptions.
+\end_layout
+
+\end_deeper
+\begin_layout NoteItem
+This was a suggestion by Ted a couple of weeks ago, so we went ahead and
+ implemented it.
+ Given that there are times when the sensor goes bad or something, the observed
+ quantities will essentially redline, with no changes.
+ It seems easy to detect, but when we implemented it, we ran into a wide
+ array of exceptions and qualifications.
+ I'll show you a few of them later in the slides.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Data Transmission to Users
+\end_layout
+
+\begin_layout BeginFrame
+Data Archive and Transmission
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename archive_and_xmit_only.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+This shows (in not-so-much detail) the part of the system which points to
+ external data users.
+ The idea is to have a NetCDF data archive and an OPeNDAP server which can
+ service data requests from users.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Proposed Transmission Standard
+\end_layout
+
+\begin_layout FrameSubtitle
+\begin_inset Graphics
+	filename opendap_logo_masthead.jpg
+	height 0.5in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Runs over HTTP
+\end_layout
+
+\begin_layout Itemize
+Allows subsetting operations
+\end_layout
+
+\begin_layout Itemize
+Allows multi-variable, multi-dimensional data
+\end_layout
+
+\begin_layout Itemize
+There exists a variety of application support
+\end_layout
+
+\begin_layout Itemize
+Maintains semantics and metadata over transmission
+\end_layout
+
+\begin_layout NoteItem
+OPeNDAP is an open standard of the data access protocol, heavily utilized
+ in oceanography and other disciplines requiring the transmission of meteorologi
+cal observations.
+ It's advantageous in that it works over HTTP, there is lots of library
+ support, so it's easy to develop applications which rely on OPeNDAP, it
+ provides for subsetting, supports multi-variable, multi-dimensional data,
+ and maintains the metadata and semantics over the transmission.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+QC in Practice
+\end_layout
+
+\begin_layout Subsection
+Examples of effective QC
+\end_layout
+
+\begin_layout BeginFrame
+Replace NA values
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename replace_na.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+I'll start with the most simple of QC operations, just to familiarize you
+ with the plots.
+ Here I have plotted the entire time series of temperature in black.
+ In red you'll see the points which were removed by the QC operation.
+ So this was a run of 
+\begin_inset Quotes eld
+\end_inset
+
+replace NA values
+\begin_inset Quotes erd
+\end_inset
+
+ using -99, and you can see that it removed the points down at the bottom
+ of the plot.
+ This rule works 100% of the time that I've seen it.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Threshold-based filtering
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename threshold_success.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Threshold-based filtering is a little bit more tricky, however here is a
+ case where it worked cleanly and completely.
+ It's pretty unlikely the the temperature dropped below -40, so our threshold
+ rule caught it and removed the points.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Persistence checking
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename persistence_good.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Now is where our rules become a little less clean-cut.
+ Here is an example of the persistence filtering using a threshold of 5
+ consecutive observations of temperature.
+ You can see that at some point the sensor redlines at zero which is correctly
+ identified and removed by the rule.
+ However, you can also see that there are a series of bogus looking records
+ between -30 and -50 that are probably sensor malfunctions which are not
+ caught by the rule.
+ Some of them may get caught by the threshold rule, but not all.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Persistence Checking
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename persistence_boxplot.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+That said, it may not matter entirely if we don't get every single last
+ bad data point.
+ Given that these will eventually be used for developing the historic climatolog
+y of the region, as long as the high level statistics are preserved, we're
+ at least in better shape than if we had no data at all.
+\end_layout
+
+\begin_layout NoteItem
+So this frame show a boxplot of the temperature during the redline period
+ before vs.
+ after the persistence filtering.
+ You can see that even with the few remaining outliers, the median is up
+ around 8 degrees and the inter-quartile range doesn't extend down below
+ zero.
+ I.e.
+ even filtering _some_ of the persistent observations buys us a lot in the
+ statistical validity of the post-QC data.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Summer Zeros
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename summer_zeros_success.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Write notes:
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Examples of ineffective QC
+\end_layout
+
+\begin_layout BeginFrame
+Naïve threshold values
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename thresh_fail_ts.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Write Notes
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Naïve threshold values
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename thresh_fail_boxplot.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Write notes
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Persistence checking is ineffective with low sensor precision
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename qc_persist_poor_precision.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+On a number of stations such as this one, the persistence checking rule
+ had a very high number of false positives.
+ It's a little hard to see on this slide, but the reason for this was that
+ the temperature sensor's precision (or at least the record) is only 1 degree.
+ After December of 2002, the record contains sub-degree precision so the
+ persistence checking is not tripped unduly.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Persistence checking is ineffective with low sensor precision
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename temp_precision.pdf
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+View of the same timeseries, zoomed in to show a little more vertical exaggerati
+on.
+ Here you can see the discrete divides between integer measurements of temperatu
+re prior to December of 2002.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Summer Zeros
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename summer_zeros_partial_success.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Write notes
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Summer Zeros
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename summer_zeros_fail.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Write notes
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Examples of unintended, yet effective QC
+\end_layout
+
+\begin_layout BeginFrame
+Temperature out of Range
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename thresh_bad_units.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Here is an example where our threshold filtering caught some observations
+ which were out of range.
+ However, looking at the graph you'll note that the structure of the data
+ looks similar to the in-range data.
+ I'm fairly certain that this was a case where the quantities were recorded
+ in Fahrenheit instead of Celsius, however there is no metadata indicating
+ as such.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Translated to Fahrenheit
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename thresh_bad_units_corrected.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+To confirm the suspicions, I took the spurious data, assumed that it was
+ in Fahrenheit, converted it to Celsius and plotted it in blue.
+ What do you think? It seems to fit, however the daily ranges aren't quite
+ as large as the rest of the data.
+ I'd have to look into it more.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section*
+Conclusions
+\end_layout
+
+\begin_layout BeginFrame
+Conclusions
+\end_layout
+
+\begin_layout Itemize
+Automated data QC is non-trivial, but possible
+\end_layout
+
+\begin_layout Itemize
+More cross-organization standardization will help to eliminate many of these
+ problems
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Created with
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features>
+<column alignment="center" valignment="middle" width="0">
+<column alignment="center" valignment="middle" width="0">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+beamer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /usr/share/lyx/images/banner.png
+	width 30col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename darcs_logo.png
+	width 25col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename gtop-www.jpg
+	width 25col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document

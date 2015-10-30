@@ -1,0 +1,6 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+ACCPPT1,mm,,lwe_thickness_of_precipitation_amount,mm,time: sum
+DURATION1,days,,time,days,time: sum
+ACCPPT2,mm,,lwe_thickness_of_precipitation_amount,mm,time: sum
+DURATION2,days,,time,days,time: sum
+SNOWDEPTH,cm,,thickness_of_snowfall,cm,time: sum

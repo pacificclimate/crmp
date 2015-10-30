@@ -1,0 +1,11 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+"Rain, mm()",mm,"depth of water-equivalent rain",lwe_thickness_of_precipitation_amount,mm,"time: sum"
+"Pressure, mbar()",millibar,,air_pressure,Pa,"time: point"
+"Temp, °C()",celsius,,air_temperature,celsius,"time: point"
+"RH, %()",%,,relative_humidity,%,
+"DewPt, °C()",celsius,,dew_point_temperature,celsius,
+"Wind Speed, m/s()","m s-1",,wind_speed,"m s-1",
+"Gust Speed, m/s()","m s-1",,wind_speed_of_gust,"m s-1",
+"Wind Direction, ø()",degree,,wind_from_direction,degree,
+"Solar Radiation, W/m²()",,,,,
+"Wetness, %()",,,,,

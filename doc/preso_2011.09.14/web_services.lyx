@@ -1,0 +1,602 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage{beamerthemesplit}
+\usepackage{graphicx}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Provincial Climate Data Set:
+\begin_inset Newline newline
+\end_inset
+
+Data Management and Web Services
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+PCDS: Data + Web
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+James Hiebert, David Bronaugh, Hailey Eckstrand
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+Hiebert, Bronaugh, Eckstrand
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Pacific Climate Impacts Consortium
+\begin_inset Newline newline
+\end_inset
+
+University of Victoria
+\begin_inset Newline newline
+\end_inset
+
+Victoria, BC
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+PCIC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+September 14, 2011
+\end_layout
+
+\begin_layout TitleGraphic
+\begin_inset Graphics
+	filename ../pcic_header3.png
+
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../uvic.jpg
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout BeginFrame
+Outline
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Talk about treatise to Ted, frustration with previous meeting, and work
+ that we've done (
+\begin_inset Quotes eld
+\end_inset
+
+Code speaks louder than words
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout BeginFrame
+Goals
+\end_layout
+
+\begin_layout Itemize
+Save time/$$ on data management
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+less time re-formatting data == more time analyzing data (the fun stuff)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Don't box yourself in; poor choices is data format
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+increase the effort spent on re-formatting
+\end_layout
+
+\begin_layout Itemize
+limits analytic ability
+\end_layout
+
+\begin_layout Itemize
+limits complexity of questions that can be asked about data
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Increase interactivity
+\end_layout
+
+\begin_layout NoteItem
+The precursor to my response is that in managing a small team of computer
+ professionals who work with highly heterogeneous data, I'm very sensitive
+ to data formatting.
+ In fact, I'm highly sensitive to how poor design decisions in data formatting
+ can: increase substantially the amount of effort which is spent on re-formattin
+g data, limits one's ability for data analysis, limits the complexity of
+ questions that one can ask about data
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+The Internet Stack
+\end_layout
+
+\begin_layout FrameSubtitle
+I promise this is relevant!
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename osi.png
+	height 80theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Currently the Internet exists as a network of networks because (this is
+ relevant, I promise!) the network engineers chose early on to use layering
+ and encapsulation for the transmission of data across networks.
+ The application layer (like websites) are encapsulated in the transit layer,
+ which is then encapsulated in the physical layer (i.e.
+ Ethernet, wireless Ethernet, cell network, etc.).
+ Each layer has no need for knowledge of the other layers, because the computer
+ essentially wraps the data up in a new envelope and passes it across the
+ next network layer below.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset Quotes eld
+\end_inset
+
+Format
+\begin_inset Quotes erd
+\end_inset
+
+ deconstruction
+\end_layout
+
+\begin_layout Itemize
+What 
+\emph on
+information
+\emph default
+ (data/metadata) should we share with each other?
+\end_layout
+
+\begin_layout Itemize
+By what 
+\emph on
+protocol
+\emph default
+ should we transmit information to each other?
+\end_layout
+
+\begin_layout Itemize
+How should the information be 
+\emph on
+encoded
+\emph default
+?
+\end_layout
+
+\begin_layout NoteItem
+\begin_inset Quotes eld
+\end_inset
+
+Forget about re-inventing the wheel; in CRMP's case, we're re-inventing
+ the envelope.
+ And then asking each agency's employees to produce their own specialized
+ glue for sealing up the envelope and their own special letter openers to
+ be able to open it.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+Resources are tight, so our goal should be to leverage existing protocols
+ and technologies that suit our purposes.
+ The information that we want to share with each other has been beautifully
+ defined by the work that you have done already.
+ But the protocol that you've defined is essentially just sending flat files
+ back and forth and I think we can do better.
+ I'll show you some examples of protocols that we can use.
+ And for our purposes, we really don't care how the information is encoded.
+ Is it in 7-bit ASCII or 16-bit unicode, or binary encoded netcdf files?
+ Is it little endian or big endian? We really don't care and we shouldn't
+ have to worry about it because it's below the level of the stack to which
+ we need to relate.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Section
+Data Storage (back-end)
+\end_layout
+
+\begin_layout BeginFrame
+Postgres / PostGIS
+\end_layout
+
+\begin_layout Itemize
+Relational database
+\end_layout
+
+\begin_layout Itemize
+Fast!
+\end_layout
+
+\begin_layout Itemize
+Sophisticated and expressive queries
+\end_layout
+
+\begin_layout Itemize
+PostGIS provides spatial extensions
+\end_layout
+
+\begin_layout NoteItem
+Not everything is a table.
+ The relational database gives us the ability to better model the relationships
+ between the elements of the BC observational network.
+ Tracks the relationships of networks to stations to observations to flags.
+ Can model movement of stations (locations changing over time), switching
+ of sensors, etc.
+ Can select data in any way supported by SQL.
+ Select observations grouped by station sorted by time.
+ Select observations grouped by variable.
+ Select all of the observations from station grouped by the day, averaged
+ across the day, throwing out days which don't meet a minimum threshold
+ of sufficiency.
+ Select all of the observations except for those with certain flags.
+ All in milliseconds.
+\end_layout
+
+\begin_layout NoteItem
+PostGIS includes a vast array of spatial operations which allow us to do
+ even more interesting things.
+ For example, give me all of the observations that fall inside a particular
+ polygon or are within some distance of a polyline (a road).
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Database Schema
+\end_layout
+
+\begin_layout FrameSubtitle
+Abbreviated
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename postgis_uml.pdf
+	width 100page%
+	rotateAngle 270
+	rotateOrigin center
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+This is an abbreviation of the database schema.
+ You can look at this later, but essentially it shows the relationships
+ between the observations, variables, stations, history, etc.
+\end_layout
+
+\begin_layout Section
+Data Applications
+\end_layout
+
+\begin_layout Subsection
+Geographic Data
+\end_layout
+
+\begin_layout BeginFrame
+GeoServer
+\end_layout
+
+\begin_layout Itemize
+Web application that serves geospatial data
+\end_layout
+
+\begin_layout Itemize
+Conforms to OpenGIS Consortium's standards
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Web Mapping Service (WMS)
+\end_layout
+
+\begin_layout Itemize
+Web Feature Service (WFS)
+\end_layout
+
+\begin_layout Itemize
+Web Coverage Service (WCS)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Leave format definition/conversion to the geospatial experts
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+Example
+\end_layout
+
+\begin_layout FrameSubtitle
+\begin_inset CommandInset href
+LatexCommand href
+name "Station Locations"
+target "http://medusa.pcic.uvic.ca/geoserver/web/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename geoserver.png
+	height 65pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout Subsection
+Meteorological Data
+\end_layout
+
+\begin_layout BeginFrame
+pydap
+\end_layout
+
+\begin_layout Itemize
+OPeNDAP server written in python
+\end_layout
+
+\begin_layout Itemize
+Implements the Open Data Access Protocol specification 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.opendap.org/pdf/ESE-RFC-004v1.2.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+General, well-defined protocol allows application developers to implement
+ the standard
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset CommandInset href
+LatexCommand href
+name "Example: live data access"
+target "http://windy.pcic.uvic.ca:8001/crmp/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename data_portal.png
+	height 65pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout NoteItem
+This website is running an OPeNDAP server named pydap.
+ It sits there waiting for a request and when we request a page about a
+ station, it goes directly to the database and retrieves all of the metadata
+ and variable descriptions for a particular station.
+\end_layout
+
+\begin_layout NoteItem
+I can go through and select which variables I want to download, then down
+ at the bottom, there's a drop down box with the list of formats that I
+ can download.
+ When I click the download button, pydap goes directly to the database and
+ selects all of the data that I have requested, does the format conversion
+ on the fly and serves it up over HTTP.
+ At present it can serve up data as ASCII, netcdf, or an Excel spreadsheet.
+\end_layout
+
+\begin_layout NoteItem
+Additionally, because the data is served with an open protocol, data can
+ be accessed extremely easily from any programming language which has an
+ implementation of the OPeNDAP library.
+ This means that technical researchers and application developers are able
+ to easily write programs that access the data quickly and efficiently.
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\begin_layout BeginFrame
+\begin_inset CommandInset href
+LatexCommand href
+name "Putting it all together"
+target "http://medusa.pcic.uvic.ca/~bronaugh/js_mapping_libraries/geoserver_OL_3005.html"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameSubtitle
+OpenLayers web map
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename web_map_mashup.png
+	height 65pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout EndFrame
+
+\end_layout
+
+\end_body
+\end_document

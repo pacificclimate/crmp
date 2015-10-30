@@ -1,0 +1,6 @@
+"network.var.name";"network.unit";"network.long.description";"cf.var.name";"cf.unit";"cf.cell.method"
+"1";"ACCPPT1";"mm";NA;"lwe_thickness_of_precipitation_amount";"mm";"time: sum"
+"2";"DURATION1";"days";NA;"time";"days";"time: sum"
+"3";"ACCPPT2";"mm";NA;"lwe_thickness_of_precipitation_amount";"mm";"time: sum"
+"4";"DURATION2";"days";NA;"time";"days";"time: sum"
+"5";"SNOWDEPTH";"cm";NA;"thickness_of_snowfall";"cm";"time: sum"

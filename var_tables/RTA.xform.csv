@@ -1,0 +1,4 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+tasmin,celsius,"Minimum temperature",air_temperature,celsius,"time: maximum"
+tasmax,celsius,"Maximum temperature",air_temperature,celsius,"time: minimum"
+pcp,mm,"Accumulated precipitation",lwe_thickness_of_precipitation_amount,mm,"time: sum"

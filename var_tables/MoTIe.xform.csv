@@ -1,0 +1,20 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+MAXIMUM_AIR_TEMPERATURE,celsius,,air_temperature,celsius,time: maximum
+CURRENT_AIR_TEMPERATURE1,celsius,,air_temperature,celsius,time: point
+MINIMUM_AIR_TEMPERATURE,celsius,,air_temperature,celsius,time: minimum
+CURRENT_AIR_TEMPERATURE2,celsius,,air_temperature,celsius,time: point
+RELATIVE_HUMIDITY1,%,,relative_humidity,%,time: point
+DEW_POINT,celsius,,dew_point_temperature,celsius,time: point
+ATMOSPHERIC_PRESSURE,,,air_pressure,millibar,time: point
+PRECIPITATION_GAUGE_TOTAL,mm,,lwe_thickness_of_precipitation_amount,mm,time: sum
+PRECIPITATION_NEW,mm,,lwe_thickness_of_precipitation_amount,mm,time: sum
+HOURLY_PRECIPITATION,mm,,lwe_thickness_of_precipitation_amount,mm,time: sum
+PRECIP_DETECTOR_RATIO,,,,,
+ACTUAL_WIND_SPEED,,,wind_speed,km h-1,time: point
+ACTUAL_WIND_DIRECTION,degrees,,wind_from_direction,,time: point
+MEASURED_WIND_SPEED1,,,wind_speed,km h-1,time: point
+MEASURED_WIND_DIRECTION1,degrees,,wind_from_direction,,time: point
+WIND_DIRECTION_STD_DEVIATION1,degrees,,wind_from_direction,,time: point
+MAXIMUM_MEASURED_WIND_SPEED1,,,wind_speed,km h-1,time: maximum
+HEIGHT_OF_SNOW,cm,,,,
+STANDARD_SNOW,cm,,,,

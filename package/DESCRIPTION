@@ -1,0 +1,11 @@
+Package: crmp
+Version: 0.2
+Date: 2012-05-14
+Title: Code for the Climate Related Monitoring Program (CRMP)
+Author: James Hiebert <hiebert@uvic.ca> for the Pacific Climate Impacts Consortium (PCIC)
+Maintainer: James Hiebert <hiebert@uvic.ca>
+Depends: R (>= 2.12.0), methods, ncdf4, multicore, MASS, RUnit, seas
+Suggests: 
+Description: This is a variety of code which is used to interface with and process data from the Climate Related Monitoring Program (CRMP). It includes code for reading and parsing data from data files received from BC ministries and agencies, code for calculating station attributes and descriptive quantities, and code for interacting with PCIC's database containing the Provincial Climate Data Set (PCDS).
+License: LGPL-2.1
+URL: http://www.r-project.org

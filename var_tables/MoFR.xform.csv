@@ -1,0 +1,6 @@
+network.var.name,network.unit,network.long.description,cf.var.name,cf.unit,cf.cell.method
+precipitation,mm,depth of water-equivalent rain,lwe_thickness_of_precipitation_amount,mm,time: sum
+temperature,celsius,,air_temperature,celsius,time: point
+relative_humidity,%,,relative_humidity,%,
+wind_speed,m s-1,,wind_speed,m s-1,
+wind_direction,degree,,wind_from_direction,degree,
