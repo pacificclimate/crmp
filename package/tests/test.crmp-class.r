@@ -185,7 +185,7 @@ test.maximal.3.5.rule <- function() {
 # Warning: this test randomly selects a set of 100 values from the data
 # it is therefore not repeatable (but probably more likely to find errors)
 long.test.maximal.3.5.rule.by.comparison <- function() {
-  options(cores=8)
+  options(mc.cores=8)
   files <- list.files(path="/home/data/projects/crmp/results-class/data.cache/", full.names=T)
 
   # Just do it on temperature... most stations have this

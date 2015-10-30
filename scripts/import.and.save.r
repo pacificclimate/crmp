@@ -1,8 +1,8 @@
 source("../crmp.load.data.r", chdir=T)
 source("../qa.qc1.r", chdir=T)
 
-library(multicore)
-options(cores=8)
+library(parallel)
+options(mc.cores=8)
 
 args <- commandArgs(trailingOnly=T)
 for (a in args) {

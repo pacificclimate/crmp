@@ -1,8 +1,8 @@
 library(crmp)
-library(multicore)
+library(parallel)
 library(RPostgreSQL)
 
-options(cores=16)
+options(mc.cores=16)
 
 # q should be a query by which one can obtain the (database) station_ids for which to calculate stats
 run.it <- function(con=dbConnect('PostgreSQL', 'crmp'), q='SELECT DISTINCT station_id FROM obs_raw NATURAL JOIN meta_history') {

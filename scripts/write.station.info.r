@@ -1,5 +1,5 @@
-library(multicore)
-options(cores=8)
+library(parallel)
+options(mc.cores=8)
 source('../crmp-class.r', chdir=T)
 
 run.it <- function(cache.dir, output.dir=NULL, output.file=NULL, period="best", param="both") {

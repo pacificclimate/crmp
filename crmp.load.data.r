@@ -15,13 +15,13 @@ source('package/R/flag-class.r')
 source('package/R/crmp-class.r')
 source('package/R/variable.defs.r')
 
-# Use multicore if possible
-error <- try(library(multicore))
+# Use parallel if possible
+error <- try(library(parallel))
 if (inherits(error, 'try-error')) {
   my.lapply <- lapply
 } else {
   my.lapply <- mclapply
-  options(cores=8)
+  options(mc.cores=8)
 }
 
 get.variable.thresholds <- function() {

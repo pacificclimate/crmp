@@ -1,6 +1,6 @@
 import(ncdf4)
 import(methods)
-import(multicore)
+import(parallel)
 import(MASS)
 import(RUnit)
 import(seas)

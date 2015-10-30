@@ -1,7 +1,7 @@
 library(ncdf4)
 library(seas)
 library(MASS)
-library(multicore)
+library(parallel)
 library(RUnit)
 
 setClass("crmp",

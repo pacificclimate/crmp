@@ -1,5 +1,5 @@
-library(multicore)
-options(cores=8)
+library(parallel)
+options(mc.cores=8)
 
 source("../crmp.load.data.r", chdir=T)
 

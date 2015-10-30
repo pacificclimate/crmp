@@ -2,8 +2,8 @@ source("qa.qc1.r")
 source("crmp.load.data.r")
 
 library(Cairo)
-library(multicore)
-options(cores=8)
+library(parallel)
+options(mc.cores=8)
 
 saved.dir <- "/home/hiebert/interim_data/cam/netcdfs"
 plot.dir <- "/home/hiebert/interim_data/cam/qc.all.data-2010.09.08"
