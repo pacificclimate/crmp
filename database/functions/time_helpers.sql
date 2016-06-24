@@ -15,7 +15,9 @@ BEGIN
     END CASE;
 END
 $BODY$
-LANGUAGE plpgsql;
+LANGUAGE plpgsql
+IMMUTABLE
+STRICT
 
 -- Test queries
 SELECT season('2001-05-01'::TIMESTAMP);
