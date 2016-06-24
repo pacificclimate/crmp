@@ -1,3 +1,63 @@
+-- Seasonal aggregate view
+
+CREATE OR REPLACE VIEW seasonal_agg_v AS (
+SELECT station_id,
+       vars_id,
+       season(obs_time) AS obs_season,
+       CASE cell_method
+            WHEN 'time: mean'::text THEN avg(datum)
+            WHEN 'time: sum'::text THEN sum(datum)
+            WHEN 'time: maximum'::text THEN avg(datum)
+            WHEN 'time: minimum'::text THEN avg(datum)
+            WHEN 'time: point'::text THEN avg(datum)
+            ELSE 'NaN'::double precision
+        END AS datum
+FROM obs_raw
+    NATURAL JOIN meta_vars
+    NATURAL JOIN meta_history
+    NATURAL JOIN meta_station
+    LEFT JOIN obs_raw_native_flags USING (obs_raw_id)
+    LEFT JOIN meta_native_flag USING (native_flag_id)
+    LEFT JOIN obs_raw_pcic_flags USING (obs_raw_id)
+    LEFT JOIN meta_pcic_flag USING (pcic_flag_id)
+WHERE freq = '1-hourly'
+    AND meta_native_flag.discard IS NOT TRUE
+    AND meta_pcic_flag.discard IS NOT TRUE
+    AND cell_method in ('time: mean','time: sum','time: maximum','time: minimum','time: point')
+GROUP BY obs_season, station_id, vars_id, cell_method
+HAVING (count(datum) / 90.0*24.0 > 0.85)
+UNION ALL
+SELECT station_id,
+       vars_id,
+       season(obs_time) AS obs_season,
+       CASE cell_method
+            WHEN 'time: mean'::text THEN avg(datum)
+            WHEN 'time: sum'::text THEN sum(datum)
+            WHEN 'time: maximum'::text THEN avg(datum)
+            WHEN 'time: minimum'::text THEN avg(datum)
+            WHEN 'time: point'::text THEN avg(datum)
+            ELSE 'NaN'::double precision
+        END AS datum
+FROM obs_raw
+    NATURAL JOIN meta_vars
+    NATURAL JOIN meta_history
+    NATURAL JOIN meta_station
+    LEFT JOIN obs_raw_native_flags USING (obs_raw_id)
+    LEFT JOIN meta_native_flag USING (native_flag_id)
+    LEFT JOIN obs_raw_pcic_flags USING (obs_raw_id)
+    LEFT JOIN meta_pcic_flag USING (pcic_flag_id)
+WHERE freq = 'daily'
+    AND meta_native_flag.discard IS NOT TRUE
+    AND meta_pcic_flag.discard IS NOT TRUE
+    AND cell_method in ('time: mean','time: sum','time: maximum','time: minimum','time: point')
+GROUP BY obs_season, station_id, vars_id, cell_method
+HAVING (count(datum) / 90.0 > 0.85)
+ORDER BY vars_id, station_id, obs_season
+);
+
+
+-- Monthly aggregate view
+
 CREATE OR REPLACE VIEW monthly_agg_v AS (
 SELECT station_id,
        vars_id,
