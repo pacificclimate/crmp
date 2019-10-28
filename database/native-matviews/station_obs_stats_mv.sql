@@ -16,9 +16,6 @@ AS
         NATURAL JOIN meta_history
 WITH NO DATA;
 
-ALTER TABLE station_obs_stats_mv
-    OWNER TO metnorth;
-
 CREATE INDEX station_obs_stats_mv_idx
     ON station_obs_stats_mv
         USING btree

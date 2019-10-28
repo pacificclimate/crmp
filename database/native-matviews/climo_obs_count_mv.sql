@@ -10,9 +10,6 @@ AS
     GROUP BY obs_raw.history_id
 WITH NO DATA;
 
-ALTER TABLE climo_obs_count_mv
-    OWNER TO metnorth;
-
 CREATE INDEX climo_obs_count_idx
     ON climo_obs_count_mv
     USING btree

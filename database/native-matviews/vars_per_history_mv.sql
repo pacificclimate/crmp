@@ -9,9 +9,6 @@ AS
     FROM obs_raw
 WITH NO DATA;
 
-ALTER TABLE vars_per_history_mv
-    OWNER TO metnorth;
-
 CREATE INDEX var_hist_idx
     ON vars_per_history_mv USING btree
     (history_id, vars_id);

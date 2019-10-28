@@ -12,9 +12,6 @@ AS
     GROUP BY vars_per_history_mv.history_id
 WITH NO DATA;
 
-ALTER TABLE collapsed_vars_mv
-    OWNER TO metnorth;
-
 CREATE INDEX collapsed_vars_idx
   ON collapsed_vars_mv
   USING btree

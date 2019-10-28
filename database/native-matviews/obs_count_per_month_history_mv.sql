@@ -11,9 +11,6 @@ AS
     GROUP BY date_trunc('month'::text, obs_raw.obs_time), obs_raw.history_id
 WITH NO DATA;
 
-ALTER TABLE obs_count_per_month_history_mv
-    OWNER TO metnorth;
-
 CREATE INDEX obs_count_per_month_history_idx
     ON obs_count_per_month_history_mv
     USING btree
