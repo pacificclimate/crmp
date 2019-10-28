@@ -1,8 +1,8 @@
--- View: crmp.collapsed_vars_mv
+-- View: collapsed_vars_mv
 
--- DROP MATERIALIZED VIEW crmp.collapsed_vars_mv;
+-- DROP MATERIALIZED VIEW collapsed_vars_mv;
 
-CREATE MATERIALIZED VIEW crmp.collapsed_vars_mv
+CREATE MATERIALIZED VIEW collapsed_vars_mv
 TABLESPACE pg_default
 AS
     SELECT vars_per_history_mv.history_id,
@@ -13,13 +13,13 @@ AS
     GROUP BY vars_per_history_mv.history_id
 WITH NO DATA;
 
-ALTER TABLE crmp.collapsed_vars_mv
+ALTER TABLE collapsed_vars_mv
     OWNER TO metnorth;
 
-GRANT SELECT ON TABLE crmp.collapsed_vars_mv TO metnorth_ro;
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE crmp.collapsed_vars_mv TO metnorth_rw;
-GRANT ALL ON TABLE crmp.collapsed_vars_mv TO metnorth;
-GRANT SELECT ON TABLE crmp.collapsed_vars_mv TO viewer;
+GRANT SELECT ON TABLE collapsed_vars_mv TO metnorth_ro;
+GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE collapsed_vars_mv TO metnorth_rw;
+GRANT ALL ON TABLE collapsed_vars_mv TO metnorth;
+GRANT SELECT ON TABLE collapsed_vars_mv TO viewer;
 
 CREATE INDEX collapsed_vars_idx
   ON collapsed_vars_mv
