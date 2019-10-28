@@ -1,5 +1,4 @@
 CREATE MATERIALIZED VIEW station_obs_stats_mv
-TABLESPACE pg_default
 AS
     SELECT
            meta_history.station_id,

@@ -3,7 +3,6 @@
 -- DROP MATERIALIZED VIEW vars_per_history_mv;
 
 CREATE MATERIALIZED VIEW vars_per_history_mv
-TABLESPACE pg_default
 AS
     SELECT DISTINCT obs_raw.history_id,
     obs_raw.vars_id
@@ -20,5 +19,4 @@ GRANT SELECT ON TABLE vars_per_history_mv TO viewer;
 
 CREATE INDEX var_hist_idx
     ON vars_per_history_mv USING btree
-    (history_id, vars_id)
-    TABLESPACE pg_default;
+    (history_id, vars_id);

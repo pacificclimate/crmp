@@ -3,7 +3,6 @@
 -- DROP MATERIALIZED VIEW climo_obs_count_mv;
 
 CREATE MATERIALIZED VIEW climo_obs_count_mv
-TABLESPACE pg_default
 AS
     SELECT count(*) AS count, obs_raw.history_id
     FROM obs_raw NATURAL JOIN meta_vars
@@ -22,5 +21,4 @@ GRANT SELECT ON TABLE climo_obs_count_mv TO viewer;
 CREATE INDEX climo_obs_count_idx
     ON climo_obs_count_mv
     USING btree
-    (history_id)
-    TABLESPACE pg_default;
+    (history_id);
