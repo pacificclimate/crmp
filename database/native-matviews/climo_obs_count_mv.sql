@@ -13,11 +13,6 @@ WITH NO DATA;
 ALTER TABLE climo_obs_count_mv
     OWNER TO metnorth;
 
-GRANT SELECT ON TABLE climo_obs_count_mv TO metnorth_ro;
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE climo_obs_count_mv TO metnorth_rw;
-GRANT ALL ON TABLE climo_obs_count_mv TO metnorth;
-GRANT SELECT ON TABLE climo_obs_count_mv TO viewer;
-
 CREATE INDEX climo_obs_count_idx
     ON climo_obs_count_mv
     USING btree

@@ -14,11 +14,6 @@ WITH NO DATA;
 ALTER TABLE obs_count_per_month_history_mv
     OWNER TO metnorth;
 
-GRANT SELECT ON TABLE obs_count_per_month_history_mv TO metnorth_ro;
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE obs_count_per_month_history_mv TO metnorth_rw;
-GRANT ALL ON TABLE obs_count_per_month_history_mv TO metnorth;
-GRANT SELECT ON TABLE obs_count_per_month_history_mv TO viewer;
-
 CREATE INDEX obs_count_per_month_history_idx
     ON obs_count_per_month_history_mv
     USING btree

@@ -19,11 +19,6 @@ WITH NO DATA;
 ALTER TABLE station_obs_stats_mv
     OWNER TO metnorth;
 
-GRANT SELECT ON TABLE station_obs_stats_mv TO metnorth_ro;
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE station_obs_stats_mv TO metnorth_rw;
-GRANT ALL ON TABLE station_obs_stats_mv TO metnorth;
-GRANT SELECT ON TABLE station_obs_stats_mv TO viewer;
-
 CREATE INDEX station_obs_stats_mv_idx
     ON station_obs_stats_mv
         USING btree

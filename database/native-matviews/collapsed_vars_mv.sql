@@ -15,11 +15,6 @@ WITH NO DATA;
 ALTER TABLE collapsed_vars_mv
     OWNER TO metnorth;
 
-GRANT SELECT ON TABLE collapsed_vars_mv TO metnorth_ro;
-GRANT INSERT, SELECT, UPDATE, DELETE ON TABLE collapsed_vars_mv TO metnorth_rw;
-GRANT ALL ON TABLE collapsed_vars_mv TO metnorth;
-GRANT SELECT ON TABLE collapsed_vars_mv TO viewer;
-
 CREATE INDEX collapsed_vars_idx
   ON collapsed_vars_mv
   USING btree
